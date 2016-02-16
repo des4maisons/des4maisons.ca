@@ -1,0 +1,10 @@
+version: '2'
+services:
+  jekyll:
+    image: 'jekyll/jekyll:stable'
+    volumes:
+      - '.:/srv/jekyll'
+    working_dir: '/srv/jekyll/des4maisons.ca'
+    ports:
+      - '4000:4000'
+    command: 'jekyll serve'
