@@ -5,8 +5,20 @@ all:
 clean:
 	rm -rf _site
 
+build: clean
+	bundle exec jekyll build --source website
+
+proofer: build
+	bundle exec htmlproof \
+		--disable-external \
+		--allow-hash-href \
+		./_site
+
+test: proofer
+	@echo "Everything looks good!"
+
 serve: clean
-	jekyll serve \
+	bundle exec jekyll serve \
 		--host 0.0.0.0 \
 		--port 4000 \
 		--future \
