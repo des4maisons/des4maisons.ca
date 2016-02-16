@@ -3,7 +3,9 @@ all:
 	@exit 1
 
 clean:
-	rm -rf _site
+	@rm -rf _site
+	@rm -rf .sass-cache
+	@rm -rf .jekyll-metadata
 
 build: clean
 	bundle exec jekyll build --source website
