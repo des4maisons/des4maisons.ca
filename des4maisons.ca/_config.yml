@@ -1,0 +1,11 @@
+# Site settings
+title: des4maisons.ca
+email: des4maisons+blog@gmail.com
+description: "A place for Marguerite's thoughts about the world."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://des4maisons.com" # the base hostname & protocol for your site
+twitter_username: des4maisons
+github_username: des4maisons
+
+# Build settings
+markdown: kramdown
