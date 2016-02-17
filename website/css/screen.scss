@@ -16,7 +16,7 @@ $base-line-height: 1;
 $text-color:       #222;
 $caption-text-color: #444;
 $border-color: #979797;
-$background-color: #fefefe;
+$background-color: rgb(243,241,216);
 $content-width:    750px;
 $hover-color: #443E40;
 $legal-color: #818181;
@@ -38,8 +38,8 @@ $banner-border-offset: 2px;
 // Images
 // Note that extensions are omitted for use in retina-background-image mixin
 $img-separator: '{{ site.baseurl }}/img/separator';
-$img-banner: '{{ site.baseurl }}/img/banner';
-$img-dude: '{{ site.baseurl }}/img/dude';
+$img-banner: '{{ site.baseurl }}/img/door';
+$img-dude: '{{ site.baseurl }}/img/flower';
 $img-location: '{{ site.baseurl }}/img/icon-location';
 
 // Import partials from `sass_dir` (defaults to `_sass`)
