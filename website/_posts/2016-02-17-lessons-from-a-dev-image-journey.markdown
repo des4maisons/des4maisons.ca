@@ -2,7 +2,6 @@
 layout: post
 title:  "Lessons from a Dev Image Journey"
 date:   2016-02-17 15:51:30 +0000
-categories: jekyll update
 ---
 
 10 years ago, when I was first learning to program, I compiled a lot of
@@ -32,7 +31,7 @@ I lost a lot too. My eagerness was beginning to wear.
 
 The strife continued until one sweltering summer night, shortly after I had acquired
 my degree in computer science. After a particularly long installation battle,
-I broke. Hot, angry, exausted, I turned my back on
+I broke. Hot, angry, exhausted, I turned my back on
 software. It was just too broken for me.
 
 I spent the next year of my life researching and working in the field of
@@ -42,7 +41,7 @@ computer science to go work on a farm.
 The despair I experienced that night is real, and still follows me to this day.
 My human response is to look for someone to blame. One might say I inflicted
 that pain on myself, blindly installing things without understanding what I
-was doing or how to deal with the consequences. But a selfish, damadged,
+was doing or how to deal with the consequences. But a selfish, damaged,
 illogical part of me blames it on project authors, who sweep the
 details and difficulties of installing dependencies under the rug, offloading
 the burden onto those trying to interact with their software.
@@ -52,7 +51,7 @@ concern themselves with the side-issue of installing some dependency! Is it
 the author's fault if, more often than not, installation explodes with the
 clap of a giant stacktrace? If a user spends hours wrestling the dependency into
 submission--an endless loop of googling an error, hacking a line of code here,
-chmoding a file there, trying the whole thing again--can the writer be blamed?
+`chmod`ing a file there, trying the whole thing again--can the writer be blamed?
 How could the writer possibly hope to anticipate the diversity of systems that
 might run their software? All software is fundamentally broken, and this
 project author should no more pay the price for this iniquity than any
@@ -89,7 +88,7 @@ with development machine automation, and I was smitten.
 When I took a step back to deconstruct this magical process, three elements of
 the FreshBooks development image strategy stood out to me: virtualization to abstract away
 the mess of my underlying system; pre-built images to bootstrap the provisioning
-process for the devoper; and configuration management to repeatably and reliably
+process for the developer; and configuration management to repeatably and reliably
 put the moving pieces of the software stack in place.
 
 Virtualization is the foundation of this strategy.
@@ -184,7 +183,7 @@ Vagrant fill that Packer did not?
 
 It was only by playing with Vagrant that I began to understand how they
 differed. Though Vagrant's features overlap with Packer's significantly, Vagrant
-is from the ground up centered around developing code. The mere fact
+is from the ground up centred around developing code. The mere fact
 that the `Vagrantfile` (the file that specifies how to provision the virtual
 machine) is _designed_ to be stored and tracked with the code being developed is
 ground-breaking. Development environments by nature house code that is
@@ -193,14 +192,14 @@ to create it, must evolve with the code. Keeping the `Vagrantfile` with the code
 allows the developer who is making code changes to also update the development
 environment as needed.
 
-The Vagrant CLI further demonstrates how development-centered Vagrant is.
+The Vagrant CLI further demonstrates how development-centred Vagrant is.
 `vagrant provision` enables tight iteration loops, reapplying the `Vagrantfile`
 specification without needing to create a machine from scratch.
 `vagrant up` further sets Vagrant apart from its image-building
 counter-part. Code is meant to be run, to interact with the network, to pick up
 changes in the filesystem. The `up` sub-command enables that by applying network and
 directory-mounting configurations specified in the `Vagrantfile`.
-When developing code, you want to run a debugger on it, to strace it, to view its core dumps.
+When developing code, you want to run a debugger on it, to `strace` it, to view its core dumps.
 `vagrant ssh` drops the user into the environment for them to troubleshoot and
 experiment. Like Packer's JSON, the `Vagrantfile` specifies which commands create
 and provision the machine. But unlike Packer, everything about Vagrant supports
@@ -209,12 +208,12 @@ the development of living, breathing, running code.
 Together, Vagrant and Packer proved to be just what I needed for that project.
 So, at this point you might think that my quest for reproducible development
 environments was at an end. To be sure, Vagrant, through its powerful
-abstraction, largly frees developers from the constant, ancillary task of
+abstraction, largely frees developers from the constant, ancillary task of
 coaxing dependencies into submission. It has truly changed how the industry
 develops applications.
 
 But the phrase "works on my machine" had not been
-elimitated from the cosmic background of software develompent. Its usage
+eliminated from the cosmic background of software development. Its usage
 continued to sour developer-sysadmin relationships. Vagrant may
 have been the holy grail of development environments, but it did little to
 transition code from a developer's laptop to production. The development and
@@ -249,7 +248,7 @@ virtual machine per service. Due to the weight of virtualization, we knew
 it wouldn't fit the bill. So we took a different approach, applying a different
 pattern: the pattern of containerization.
 
-From a container's perpective, the world superficially looks pretty similar to a
+From a container's perspective, the world superficially looks pretty similar to a
 virtual machine. It gets the semblance of an operating system, filesystem and process space all
 to itself. But where a virtual machine runs its own kernel and requires
 dedicated chunks of RAM, containers share both memory and kernel among
@@ -298,7 +297,7 @@ in a `Dockerfile`. Writing a `Dockerfile` was a small investment that I knew I c
 rely on later if I ever needed to rebuild the project, in stark contrast to the
 time spent fighting local bundler errors--a tax I paid again and again.
 
-Similar to Vagrantfiles, Dockerfiles use a simple syntax to define how a
+Similar to `Vagrantfile`s, `Dockerfile` use a simple syntax to define how a
 container should be created and what service should run in it. Only one service
 can run per Docker container, so if you have multiple co-operating service, you
 need to run multiple Docker containers that communicate. Docker Compose is a
