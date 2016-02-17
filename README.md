@@ -1,13 +1,11 @@
+# des4maisons.ca
 
-# Running jekyll server
+[![Travis CI](https://img.shields.io/travis/des4maisons/des4maisons.ca/master.svg?style=flat-square)](https://travis-ci.org/des4maisons/des4maisons.ca)
 
-```
-docker-compose up
-```
+The source code behind [des4maisons.ca](https://des4maisons.ca), generated
+using the [Jekyll](https://jekyllrb.com) static website generator.
 
-Navigate to `<docker-machine-ip>:4000`
+## Credits
 
-# Credits
-
-The theme from my blog was derived from the beautiful and simple
-[Galileo theme by rowanoulton](https://github.com/rowanoulton/galileo-theme).
+The theme from this site was derived from the beautiful and simple [Galileo
+theme by rowanoulton](https://github.com/rowanoulton/galileo-theme).
