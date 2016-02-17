@@ -267,7 +267,7 @@ configuration management it relied on, tended to collapse from the slightest bre
 It was too sensitive to changes it had no control over.
 
 We succeeded in producing a production-like environment on a laptop, an
-achievement in and of itself. This allowed us run continuous integration
+achievement in and of itself. This allowed us to run continuous integration
 testing of our Chef cookbooks, to test certain internal applications that
 lacked a staging environment, and to make changes to deployment logic with
 confidence. In that respect, it was a success!
