@@ -6,12 +6,24 @@ rvm:
 env:
   global:
     - 'NOKOGIRI_USE_SYSTEM_LIBRARIES=true'
+    - 'AWS_ACCESS_KEY_ID=AKIAIXS5WSUWKDQD5IHQ'
+    - secure: "rGcE+R+dLmrdCk+k5KGpAd1alo+iyLoSIFgIGlPsBV5omkqgVy2FB8sc8lU/02DCCr/bnA9M38z6O0Yb0OrTPVfbKaLtaxTNabvsacb3bAn0u2YKRjqu1Vl0/k/X/MCSZj6WnL4sEFP810qbXGvqNZ5q2WrsELBoH1C/yWs6i0TXYlICI7M0lz9S5wFByMFMFHxe4c2+QFRxeKfvxEbwWv0UMGtgXMgpBC8aDByRoMsIiMgmf5sDJ/Bo4k1eWGzgFSsYoVkekUUt57md29+xV0ZmEofqklW0/gt9lHsXz8Esqe/ppDGdCF03cvu4GG/i9KfuLA5O+nIlN9VWqG00OtI5eYUEz2ZrBajsOOP6fCxApnDYs+fT300jx/ITQlp0Pf0wvGFmOTpdWiX08WyFX6fwdL6Hz0oDw2uR4qSV9eRs5ph0qves1n2Is1VSLhLmUP2VhP7UfOTEzGqsrlEnC9mVA84ynnV5zISopwEi00LGy9cXUuDyl3xg0UsE78JytvPUWXP2L4FQfZElRd4x+L/nhxpFXpy78NkFcnDPBig9KO8Eh460OmVI6D8WA+AzWSp1n1ykuwZNLIi/HVg8aMcHHTsVMXh7bwfe179it+AVBWq6BNAYEwUB209ztfn++5DR8S58/0F0gIps7cdWZb3Mr1FmNwcFPy3KvMlXjqk="
+    - secure: "QG28XxuPsj7PX7wHvUGBOZnv3b2lf06xBWWgB7TziOaqksdXo0pSCu9MTvKhTRdsctn4FHeEfC26czPK2QCjRXm6jspAuARemAGIJCRolKfHPWB/bWVuN1f3bPX+lkm7UPTNqSn45EN0kSeYak/rBkxsIdivn5fwi/aKlVmQWxJBydurHgmVWHtkB+/aS5q0fQ7zDmMzNiqg9h7mK/q61Vo2LJiJQdGpm6DieM9oVLFlqFE2sxsVttcOpzhV6BAnHXlZPRyC8MSbr9oRt/GZG2pWW4j++odgIeQsMBSm0tPTT52oQWZLh89jXCiUSqDN5P1VidPaNi1t6qtZ1z3iuZ/WbD2+Hw0M3Ur7q8uvNzB/x6524dwvOA0aCU/CJApssh3vvqTt7WoLg4/yDQS3CSYf2iT2e/9a/AJZAXRzxxLJk6IPngbSFbR+jumzpVti4BUlfjYQG2mTYFDoYLGvc9GtfpokwcAhyipmVtvgg4+XImSVizP/Udyu4MRBVudX98hvF8QU9NVCsik1zcE3b45aL0Mkz/g1bS77q1JnDjW/4XXgKalIqnsEhLNeuYW23MJKux7rxRk9kQFQPt3oOXEeOFroY83r+iJVYIg1hXRp6Yr4X//rJgjO4qPvgBw/3V7K4AgTeECWGMOtHurnHLBEz9KkPxDugLeqjXX7EOc="
 
 install:
   - 'bundle install'
 
 script:
   - 'make test'
+  - 'make build'
 
 notifications:
   email: false
+
+deploy:
+  - provider: 'script'
+    script: 'gem install s3_website && s3_website push --verbose'
+    skip_cleanup: true
+    on:
+      branch: 'master'
+      repo: 'des4maisons/des4maisons.ca'
