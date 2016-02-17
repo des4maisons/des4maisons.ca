@@ -1,10 +1,15 @@
 version: '2'
 services:
   jekyll:
-    image: 'jekyll/jekyll:stable'
+    image: 'ruby:2.3.0'
     volumes:
       - '.:/srv/jekyll'
-    working_dir: '/srv/jekyll/website'
+    working_dir: '/srv/jekyll'
     ports:
       - '4000:4000'
-    command: 'jekyll serve'
+    command: 'make serve'
+    environment:
+      - 'BUNDLE_PATH=/srv/jekyll/.bundle'
+      - 'GEM_HOME=/srv/jekyll/.bundle'
+      - 'BUNDLE_APP_CONFIG=/srv/jekyll/.bundle'
+      - 'BUNDLE_BIN=/srv/jekyll/.bundle/bin'
